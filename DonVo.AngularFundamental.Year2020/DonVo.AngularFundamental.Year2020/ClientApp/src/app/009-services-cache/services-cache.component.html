@@ -1,0 +1,17 @@
+<h3>With caching of data. See Dev Tools Console</h3>
+<ul class="list-group">
+  <li *ngFor="let city of cities | async"
+      class="list-group-item"
+      (click)="getCity(city)">
+    {{ city.id}} - {{ city.name }}
+  </li>
+</ul>
+<button class="btn btn-primary" (click)="loadCities()">Reload cities</button>
+<button *ngIf="cities" class="btn btn-primary" (click)="clear()">Clear list</button>
+<button *ngIf="cities" class="btn btn-success" (click)="clearCache()">Clear cache</button>
+<hr>
+<div *ngIf="currentCity">
+  <h3>You picked: {{ currentCity.name }}, {{ currentCity.stateOrProvince }}</h3>
+  <img class="cityPhoto"
+       [src]="cityPhoto" alt="Photo of {{ currentCity.name}}">
+</div>

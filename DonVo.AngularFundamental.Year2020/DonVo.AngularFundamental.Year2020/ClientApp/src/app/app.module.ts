@@ -17,6 +17,8 @@ import { TwoWaysBindingComponent } from './004-two-ways-binding/two-ways-binding
 import { SelectionListComponent } from './005-selection-list/selection-list.component';
 import { ServicesStaticComponent } from './006-services-static/services-static.component';
 import { ServicesHttpComponent } from './007-services-http/services-http.component';
+import { ServicesRXJSComponent } from './008-services-rxjs/services-rxjs.component';
+import { ServicesCacheComponent } from './009-services-cache/services-cache.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { ServicesHttpComponent } from './007-services-http/services-http.compone
     SelectionListComponent,
     ServicesStaticComponent,
     ServicesHttpComponent,
+    ServicesRXJSComponent,
+    ServicesCacheComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,6 +49,8 @@ import { ServicesHttpComponent } from './007-services-http/services-http.compone
       { path: 'selection-list', component: SelectionListComponent },
       { path: 'services-static', component: ServicesStaticComponent },
       { path: 'services-http', component: ServicesHttpComponent },
+      { path: 'services-rxjs', component: ServicesRXJSComponent },
+      { path: 'services-cache', component: ServicesCacheComponent },
     ])
   ],
   providers: [CityService],
