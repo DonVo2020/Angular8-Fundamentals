@@ -1,0 +1,15 @@
+<h3>Using interpolation</h3>
+<p>My name is : {{ name }}</p>
+<hr>
+<h3>Using *ngFor for cities are:</h3>
+<ul>
+  <li *ngFor="let city of cities">{{ city}}</li>
+</ul>
+<hr>
+<h3>Using *ngIf</h3>
+<p *ngIf="cities.length > 3">You have many favourite cities! (over 3)</p>
+<hr>
+<h3>Cities, using a Model:</h3>
+<ul>
+  <li *ngFor="let city of citiesStatesModel">{{ city.id}} - {{ city.name }}, {{ city.stateOrProvince }}</li>
+</ul>

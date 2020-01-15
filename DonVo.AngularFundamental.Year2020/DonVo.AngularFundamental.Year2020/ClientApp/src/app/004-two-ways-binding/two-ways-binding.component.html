@@ -1,0 +1,25 @@
+<style>
+  .photoCity {
+    max-width: 300px;
+  }
+</style>
+<h2>My favourite cities: (click on each row to see the change)</h2>
+<ul class="list-group">
+  <li *ngFor="let city of cities" class="list-group-item"
+      (click)="updateCity(city)">
+    {{ city.id}} - {{ city.name }}
+  </li>
+</ul>
+<hr>
+<h3>Two-way binding</h3>
+<input type="text" class="form-control-lg"
+       [(ngModel)]="newCity" placeholder="City..." />
+<!--Notice: import FormsModule in app.module.ts, because we're using ngModel! -->
+<h3>{{ newCity }}</h3>
+
+<h3>Two-way binding with extensive syntax</h3>
+<input type="text" class="form-control-lg"
+       [value]="newCityExtended"
+       (input)="newCityExtended = $event.target.value"
+       placeholder="City..." />
+<h3>{{ newCityExtended }}</h3>

@@ -1,0 +1,16 @@
+<h3>My favourite cities are: (Select on each row to see city's image)</h3>
+<ul class="list-group">
+  <li *ngFor="let city of cities" class="list-group-item"
+      (click)="updateCity(city)">
+    {{ city.id}} - {{ city.name }}
+  </li>
+</ul>
+<hr>
+
+<!-- Attribute binding -->
+<div *ngIf="currentCity">
+  <img [src]="cityPhoto"
+       [alt]="currentCity.name"
+       class="cityPhoto">
+  <h3> Selected City: {{ currentCity.name}}</h3>
+</div>
