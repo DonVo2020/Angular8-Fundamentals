@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { CityService } from './shared/services/city.service';
+
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -13,6 +15,9 @@ import { EventBindingComponent } from './002-event-binding/event-binding.compone
 import { AttributeBindingComponent } from './003-attribute-binding/attribute-binding.component';
 import { TwoWaysBindingComponent } from './004-two-ways-binding/two-ways-binding.component';
 import { SelectionListComponent } from './005-selection-list/selection-list.component';
+import { ServicesStaticComponent } from './006-services-static/services-static.component';
+import { ServicesHttpComponent } from './007-services-http/services-http.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +29,8 @@ import { SelectionListComponent } from './005-selection-list/selection-list.comp
     AttributeBindingComponent,
     TwoWaysBindingComponent,
     SelectionListComponent,
+    ServicesStaticComponent,
+    ServicesHttpComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,9 +43,11 @@ import { SelectionListComponent } from './005-selection-list/selection-list.comp
       { path: 'attribute-binding', component: AttributeBindingComponent },
       { path: 'two-ways-binding', component: TwoWaysBindingComponent },
       { path: 'selection-list', component: SelectionListComponent },
+      { path: 'services-static', component: ServicesStaticComponent },
+      { path: 'services-http', component: ServicesHttpComponent },
     ])
   ],
-  providers: [],
+  providers: [CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
