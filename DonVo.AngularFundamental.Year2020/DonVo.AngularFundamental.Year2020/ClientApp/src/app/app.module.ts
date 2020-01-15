@@ -7,10 +7,12 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
 import { EventBindingComponent } from './002-event-binding/event-binding.component';
 import { AttributeBindingComponent } from './003-attribute-binding/attribute-binding.component';
 import { TwoWaysBindingComponent } from './004-two-ways-binding/two-ways-binding.component';
+import { SelectionListComponent } from './005-selection-list/selection-list.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { TwoWaysBindingComponent } from './004-two-ways-binding/two-ways-binding
     EventBindingComponent,
     AttributeBindingComponent,
     TwoWaysBindingComponent,
+    SelectionListComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,6 +35,7 @@ import { TwoWaysBindingComponent } from './004-two-ways-binding/two-ways-binding
       { path: 'event-binding', component: EventBindingComponent },
       { path: 'attribute-binding', component: AttributeBindingComponent },
       { path: 'two-ways-binding', component: TwoWaysBindingComponent },
+      { path: 'selection-list', component: SelectionListComponent },
     ])
   ],
   providers: [],
