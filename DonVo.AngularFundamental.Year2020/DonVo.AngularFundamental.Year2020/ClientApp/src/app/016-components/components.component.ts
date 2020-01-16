@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CityService } from "../shared/services/city.service";
-import { CityDetailComponent } from './city-detail.component'; // Insert new component
+//import { CityDetail1Component } from './city-detail-1.component'; // Insert new component
 import { City } from '../shared/models/city.model';
 
 @Component({

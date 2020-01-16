@@ -15,7 +15,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
 // other componets
-import { CityDetailComponent } from './016-components/city-detail.component';
+import { CityDetailComponent } from './shared/components/city-detail.component';
 
 // template components
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
@@ -34,6 +34,7 @@ import { ServicesLiveComponent } from './013-services-live/services-live.compone
 import { ServicesLiveWithMappingComponent } from './014-services-live-with-mapping/services-live-with-mapping.component';
 import { PostRestApiComponent } from './015-post-restapi/post-restapi.component';
 import { ComponentsComponent } from './016-components/components.component';
+import { ComponentsInputsComponent } from './017-components-inputs/components-inputs.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ComponentsComponent } from './016-components/components.component';
     PostRestApiComponent,
     CityDetailComponent,
     ComponentsComponent,
+    ComponentsInputsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -81,6 +83,7 @@ import { ComponentsComponent } from './016-components/components.component';
       { path: 'services-live-with-mapping', component: ServicesLiveWithMappingComponent },
       { path: 'post-restapi', component: PostRestApiComponent },
       { path: 'components', component: ComponentsComponent },
+      { path: 'components-inputs', component: ComponentsInputsComponent },
     ])
   ],
   providers: [CityService, ApiService,
