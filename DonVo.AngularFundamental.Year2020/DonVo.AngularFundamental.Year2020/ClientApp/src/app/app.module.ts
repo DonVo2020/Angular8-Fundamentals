@@ -14,6 +14,10 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
+// other componets
+import { CityDetailComponent } from './016-components/city-detail.component';
+
+// template components
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
 import { EventBindingComponent } from './002-event-binding/event-binding.component';
 import { AttributeBindingComponent } from './003-attribute-binding/attribute-binding.component';
@@ -29,6 +33,7 @@ import { ServicesAsyncPipeComponent } from './012-services-async-pipe/services-a
 import { ServicesLiveComponent } from './013-services-live/services-live.component';
 import { ServicesLiveWithMappingComponent } from './014-services-live-with-mapping/services-live-with-mapping.component';
 import { PostRestApiComponent } from './015-post-restapi/post-restapi.component';
+import { ComponentsComponent } from './016-components/components.component';
 
 
 @NgModule({
@@ -50,7 +55,9 @@ import { PostRestApiComponent } from './015-post-restapi/post-restapi.component'
     ServicesAsyncPipeComponent,
     ServicesLiveComponent,
     ServicesLiveWithMappingComponent,
-    PostRestApiComponent
+    PostRestApiComponent,
+    CityDetailComponent,
+    ComponentsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -73,6 +80,7 @@ import { PostRestApiComponent } from './015-post-restapi/post-restapi.component'
       { path: 'services-live', component: ServicesLiveComponent },
       { path: 'services-live-with-mapping', component: ServicesLiveWithMappingComponent },
       { path: 'post-restapi', component: PostRestApiComponent },
+      { path: 'components', component: ComponentsComponent },
     ])
   ],
   providers: [CityService, ApiService,
