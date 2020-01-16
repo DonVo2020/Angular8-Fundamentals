@@ -5,6 +5,7 @@ export class City {
     public stateOrProvince: string = 'N/A',
     public rating: number = 0,
     public highlights: string[] = ['N/A'],
-    public favorite?: boolean
+    public favorite?: boolean,
+    public price: number = 0
   ) { }
 }

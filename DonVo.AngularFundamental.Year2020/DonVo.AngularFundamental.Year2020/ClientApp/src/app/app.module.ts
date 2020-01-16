@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ApiService } from './shared/services/api.service';
 import { CityService } from './shared/services/city.service';
 import { MovieService } from './shared/services/movie.service';
+import { OrderService } from './shared/services/order.service';
 
 // components
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 
 // other componets
 import { CityDetailComponent } from './shared/components/city-detail.component';
+import { CityOrdersComponent } from './shared/components/city-orders.component';
 
 // template components
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
@@ -36,6 +38,7 @@ import { PostRestApiComponent } from './015-post-restapi/post-restapi.component'
 import { ComponentsComponent } from './016-components/components.component';
 import { ComponentsInputsComponent } from './017-components-inputs/components-inputs.component';
 import { ComponentsOutputsComponent } from './018-components-outputs/components-outputs.component';
+import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-ordercomponent.component';
 
 
 @NgModule({
@@ -62,6 +65,8 @@ import { ComponentsOutputsComponent } from './018-components-outputs/components-
     ComponentsComponent,
     ComponentsInputsComponent,
     ComponentsOutputsComponent,
+    CityOrdersComponent,
+    PubSubOrderComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -87,9 +92,10 @@ import { ComponentsOutputsComponent } from './018-components-outputs/components-
       { path: 'components', component: ComponentsComponent },
       { path: 'components-inputs', component: ComponentsInputsComponent },
       { path: 'components-outputs', component: ComponentsOutputsComponent },
+      { path: 'pubsub-ordercomponent', component: PubSubOrderComponent },
     ])
   ],
-  providers: [CityService, ApiService,
+  providers: [CityService, ApiService, OrderService,
               { provide: MovieService, useClass: MovieService }],
   bootstrap: [AppComponent]
 })
