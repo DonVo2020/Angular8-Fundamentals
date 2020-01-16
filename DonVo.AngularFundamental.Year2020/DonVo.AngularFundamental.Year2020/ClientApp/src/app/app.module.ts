@@ -23,6 +23,7 @@ import { ServicesHttpComponent } from './007-services-http/services-http.compone
 import { ServicesRXJSComponent } from './008-services-rxjs/services-rxjs.component';
 import { ServicesCacheComponent } from './009-services-cache/services-cache.component';
 import { ServicesAPIComponent } from './010-services-apiService/services-apiService.component';
+import { ServicesHttpCRUDComponent } from './011-services-http-CRUD/services-http-CRUD.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ServicesAPIComponent } from './010-services-apiService/services-apiServ
     ServicesRXJSComponent,
     ServicesCacheComponent,
     ServicesAPIComponent,
+    ServicesHttpCRUDComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -57,6 +59,7 @@ import { ServicesAPIComponent } from './010-services-apiService/services-apiServ
       { path: 'services-rxjs', component: ServicesRXJSComponent },
       { path: 'services-cache', component: ServicesCacheComponent },
       { path: 'services-apiService', component: ServicesAPIComponent },
+      { path: 'services-http-CRUD', component: ServicesHttpCRUDComponent },
     ])
   ],
   providers: [CityService, ApiService],

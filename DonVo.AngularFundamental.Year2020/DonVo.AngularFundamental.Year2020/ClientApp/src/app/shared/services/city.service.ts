@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { City } from '../models/city.model';
 import { ApiService } from './api.service';
+
+const API_URL = 'http://localhost:3000/cities';
+// Set RequestOptions. In this case only the header.
+const headers = new HttpHeaders().set('Content-Type', 'application/json');
+const API_ARGS = { headers };
 
 @Injectable()
 export class CityService {
@@ -90,6 +95,47 @@ export class CityService {
 
   addCityAPI(newCity: City): Observable<City> {
     return this.apiService.createCity(newCity);
+  }
+
+  getCitiesCRUD(): Observable<City[]> {
+    return this.http.get<City[]>(API_URL).pipe(
+      catchError(err => {
+        console.log('Error! Did you forget to start json-server? Run `npm run json-server` to start the server', err);
+        return of([]);
+      })
+    );
+  }
+
+  // GET: Return 1 City, based on Id
+  getCityCRUD(id: number): Observable<City> {
+    return this.http.get<City>(API_URL + `/${id}`);
+  }
+
+  // POST: Add a new City
+  addCityCRUD(cityName: string): Observable<City> {
+
+    const newCity = new City(null, cityName);
+
+    // Add city via POST request
+    return this.http.post<City>(
+      API_URL,
+      JSON.stringify(newCity),
+      API_ARGS
+    );
+  }
+
+  // DELETE: Delete city from the .json-file (warning: no trash. City is actually removed)
+  deleteCityCRUD(city) {
+    return this.http.delete(API_URL + `/${city.id}`);
+  }
+
+  // PUT : update a current city
+  updateCityCRUD(city: City): Observable<City> {
+    return this.http.put<City>(
+      API_URL + `/${city.id}`,
+      JSON.stringify(city),
+      API_ARGS
+    );
   }
 
 }

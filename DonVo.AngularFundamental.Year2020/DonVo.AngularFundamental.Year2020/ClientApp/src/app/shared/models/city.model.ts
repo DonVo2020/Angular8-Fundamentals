@@ -1,9 +1,9 @@
 export class City {
   constructor(
-    public id: number,
+    public id: number = null,
     public name: string,
-    public stateOrProvince: string,
+    public stateOrProvince: string = 'N/A',
     public rating: number = 0,
-    public highlights?: string[]
+    public highlights: string[] = ['N/A']
   ) { }
 }
