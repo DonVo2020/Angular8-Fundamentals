@@ -4,8 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+// services
+import { ApiService } from './shared/services/api.service';
 import { CityService } from './shared/services/city.service';
 
+// components
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +22,7 @@ import { ServicesStaticComponent } from './006-services-static/services-static.c
 import { ServicesHttpComponent } from './007-services-http/services-http.component';
 import { ServicesRXJSComponent } from './008-services-rxjs/services-rxjs.component';
 import { ServicesCacheComponent } from './009-services-cache/services-cache.component';
+import { ServicesAPIComponent } from './010-services-apiService/services-apiService.component';
 
 
 @NgModule({
@@ -35,6 +39,7 @@ import { ServicesCacheComponent } from './009-services-cache/services-cache.comp
     ServicesHttpComponent,
     ServicesRXJSComponent,
     ServicesCacheComponent,
+    ServicesAPIComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,9 +56,10 @@ import { ServicesCacheComponent } from './009-services-cache/services-cache.comp
       { path: 'services-http', component: ServicesHttpComponent },
       { path: 'services-rxjs', component: ServicesRXJSComponent },
       { path: 'services-cache', component: ServicesCacheComponent },
+      { path: 'services-apiService', component: ServicesAPIComponent },
     ])
   ],
-  providers: [CityService],
+  providers: [CityService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

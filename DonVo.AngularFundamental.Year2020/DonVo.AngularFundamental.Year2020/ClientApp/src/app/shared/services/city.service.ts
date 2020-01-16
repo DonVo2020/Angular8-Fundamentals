@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { City } from '../models/city.model';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class CityService {
@@ -11,7 +12,10 @@ export class CityService {
   private cityCache: any[];
   private observable: Observable<any>;
 
-  constructor(private http: HttpClient) {
+  // by using an extra apiService, our CityService doesn't have to know
+  // about the Http-backend (or Mock) anymore.
+  // This adds a layer of complexity/abstraction, but is also more flexible.
+  constructor(private http: HttpClient, private apiService: ApiService) {
 
   }
 
@@ -42,27 +46,27 @@ export class CityService {
     return this.http.get<City[]>('assets/data/cities.json');
   }
 
-  // retourneer alle cities, gemapt naar json
+  // return all cities, mapped to json
   getCitiesObservable(): Observable<City[]> {
     if (this.cityCache) {
-      // 1. cities al aanwezig. Return Observable naar cities.
+      // 1. cities already present. Return Observable to cities.
       return of(this.cityCache);
     } else if (this.observable) {
-      // 2. Er is op dit moment nog een request gaande. Return het request-object.
+      // 2. A request is still pending. Return the request object.
       return this.observable;
     } else {
-      // 3. Geen cities in cache. Doe nieuwe http-call
+      // 3. No cities in cache. Make a new http call
       this.observable = this.http.get<City[]>('assets/data/cities.json').pipe(
         map(cities => {
           console.log('Fetched cities.json via HTTP-call');
-          // 3a. Als er cached data is, hebben we this.observable niet meer nodig
+          // 3a. If there is cached data, we no longer need this.observable
           this.observable = null;
-          // 3b. Data is binnen, set cache
+          // 3b. Data has arrived, set cache
           this.cityCache = cities;
           return cities;
         }),
         catchError((error: any) => {
-          //  3c. Error handling here, omdat we nu async-pipe gebruiken.
+          //  3c. Error handling here, because we now use async-pipe.
           console.log('Error while fetching cities: ', error);
           return of(null);
         })
@@ -74,6 +78,18 @@ export class CityService {
   clearCache() {
     console.log('Cache cleared - cities removed');
     this.cityCache = null;
+  }
+
+  getCitiesAPI(): Observable<City[]> {
+    return this.apiService.getCities();
+  }
+
+  getCityAPI(id: number): Observable<City> {
+    return this.apiService.getCity(id);
+  }
+
+  addCityAPI(newCity: City): Observable<City> {
+    return this.apiService.createCity(newCity);
   }
 
 }
