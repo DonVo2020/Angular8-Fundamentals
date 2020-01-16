@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  // url of development API, hosted by json-server. See https://www.npmjs.com/package/json-server for detail
+  apiUrl: 'http://localhost:3000'
 };
 
 /*
