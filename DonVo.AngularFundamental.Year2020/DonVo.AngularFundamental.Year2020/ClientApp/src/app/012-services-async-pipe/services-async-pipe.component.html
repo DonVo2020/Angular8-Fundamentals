@@ -1,0 +1,21 @@
+<h2>Fetching cities async from .json-file, show in UI with async pipe</h2>
+<h3>My favourite cities:</h3>
+
+<ul class="list-group">
+  <li *ngFor="let city of cities$ | async" class="list-group-item" (click)="getCity(city)">
+    {{ city.id}} - {{ city.name }}
+  </li>
+</ul>
+<hr>
+<div *ngIf="currentCity">
+  <h3>You picked: {{ currentCity.name }}, {{ currentCity.stateOrProvince }}</h3>
+  <img class="cityPhoto"
+       [src]="cityPhoto" alt="Photo of {{ currentCity.name}}">
+</div>
+
+
+
+
+
+
+
