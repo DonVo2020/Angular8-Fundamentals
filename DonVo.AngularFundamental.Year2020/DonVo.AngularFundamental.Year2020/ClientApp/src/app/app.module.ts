@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 // services
 import { ApiService } from './shared/services/api.service';
 import { CityService } from './shared/services/city.service';
+import { MovieService } from './shared/services/movie.service';
 
 // components
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { ServicesCacheComponent } from './009-services-cache/services-cache.comp
 import { ServicesAPIComponent } from './010-services-apiService/services-apiService.component';
 import { ServicesHttpCRUDComponent } from './011-services-http-CRUD/services-http-CRUD.component';
 import { ServicesAsyncPipeComponent } from './012-services-async-pipe/services-async-pipe.component';
+import { ServicesLiveComponent } from './013-services-live/services-live.component';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { ServicesAsyncPipeComponent } from './012-services-async-pipe/services-a
     ServicesCacheComponent,
     ServicesAPIComponent,
     ServicesHttpCRUDComponent,
-    ServicesAsyncPipeComponent
+    ServicesAsyncPipeComponent,
+    ServicesLiveComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -63,9 +66,11 @@ import { ServicesAsyncPipeComponent } from './012-services-async-pipe/services-a
       { path: 'services-apiService', component: ServicesAPIComponent },
       { path: 'services-http-CRUD', component: ServicesHttpCRUDComponent },
       { path: 'services-async-pipe', component: ServicesAsyncPipeComponent },
+      { path: 'services-live', component: ServicesLiveComponent },
     ])
   ],
-  providers: [CityService, ApiService],
+  providers: [CityService, ApiService,
+              { provide: MovieService, useClass: MovieService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
