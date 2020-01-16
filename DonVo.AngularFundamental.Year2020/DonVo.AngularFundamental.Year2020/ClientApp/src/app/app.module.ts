@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { AppRoutes } from './app.routes';
+
 // services
 import { ApiService } from './shared/services/api.service';
 import { CityService } from './shared/services/city.service';
@@ -16,8 +18,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
 // other componets
+import { MainComponent } from './shared/MainComponent';
 import { CityDetailComponent } from './shared/components/city-detail.component';
 import { CityOrdersComponent } from './shared/components/city-orders.component';
+import { CityAddComponent } from './shared/components/city-add.component';
 
 // template components
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
@@ -39,6 +43,8 @@ import { ComponentsComponent } from './016-components/components.component';
 import { ComponentsInputsComponent } from './017-components-inputs/components-inputs.component';
 import { ComponentsOutputsComponent } from './018-components-outputs/components-outputs.component';
 import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-ordercomponent.component';
+import { RouteSimpleComponent } from './020-router-simple/router-simple.component';
+import { RouterParameterComponent } from './021-router-parameter/router-parameter.component';
 
 
 @NgModule({
@@ -67,11 +73,16 @@ import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-orderco
     ComponentsOutputsComponent,
     CityOrdersComponent,
     PubSubOrderComponent,
+    CityAddComponent,
+    MainComponent,
+    RouteSimpleComponent,
+    RouterParameterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    //RouterModule.forRoot(AppRoutes) // used for router only
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'data-binding', component: DataBindingComponent },
@@ -93,10 +104,13 @@ import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-orderco
       { path: 'components-inputs', component: ComponentsInputsComponent },
       { path: 'components-outputs', component: ComponentsOutputsComponent },
       { path: 'pubsub-ordercomponent', component: PubSubOrderComponent },
+      { path: 'router-simple', component: RouteSimpleComponent },
+      { path: 'router-parameter', component: RouterParameterComponent },
     ])
   ],
   providers: [CityService, ApiService, OrderService,
               { provide: MovieService, useClass: MovieService }],
+  //bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
   bootstrap: [AppComponent]
 })
 export class AppModule { }

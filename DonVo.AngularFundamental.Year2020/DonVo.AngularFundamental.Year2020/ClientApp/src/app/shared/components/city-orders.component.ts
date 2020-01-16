@@ -6,7 +6,7 @@ import { City } from '../models/city.model';
 import { CityOrderModel } from '../models/cityOrders.model';
 
 @Component({
-  selector: 'city-orders',
+  selector: 'city-orders-pubsub',
   template: `
     <div *ngIf="currentOrders.length > 0">
       <h2>Your bookings:</h2>
@@ -25,7 +25,7 @@ import { CityOrderModel } from '../models/cityOrders.model';
         </tbody>
         <tr>
           <td colspan="2">Total</td>
-          <td><strong>{{totalPrice | currency:'EUR':'symbol':'1.2'}}</strong></td>
+          <td><strong>{{totalPrice | currency:'USA':'symbol':'1.2'}}</strong></td>
         </tr>
       </table>
       <button class="btn btn-default" (click)="cancel()">Cancel</button>

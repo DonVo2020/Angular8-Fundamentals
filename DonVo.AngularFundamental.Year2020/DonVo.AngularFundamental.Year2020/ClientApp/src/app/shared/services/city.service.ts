@@ -138,4 +138,15 @@ export class CityService {
     );
   }
 
+  getCityRouter(id: number): Observable<City> {
+    return this.http.get('assets/data/cities.json')
+      .pipe(
+        map((res: City[]) => {
+          return res.find((city: City) => {
+            return city.id === id;
+          })
+        })
+      )
+  }
+
 }
