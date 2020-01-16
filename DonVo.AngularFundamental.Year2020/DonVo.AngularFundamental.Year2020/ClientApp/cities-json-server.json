@@ -1,0 +1,46 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "Houston",
+      "stateOrProvince": "TX",
+      "rating": 0,
+      "highlights": "Downtown"
+    },
+    {
+      "id": 2,
+      "name": "Boston",
+      "stateOrProvince": "MA",
+      "rating": 0,
+      "highlights": "Downtown"
+    },
+    {
+      "id": 3,
+      "name": "Miami",
+      "stateOrProvince": "FL",
+      "rating": 0,
+      "highlights": "Downtown"
+    },
+    {
+      "id": 4,
+      "name": "Chicago",
+      "stateOrProvince": "IL",
+      "rating": 0,
+      "highlights": "Downtown"
+    },
+    {
+      "id": 5,
+      "name": "Seattle",
+      "stateOrProvince": "WA",
+      "rating": 0,
+      "highlights": "Downtown"
+    },
+    {
+      "id": 340,
+      "name": "Raleigh",
+      "rating": 0,
+	  "stateOrProvince": "NC",
+      "highlights": "N/A"
+    }
+  ]
+}
