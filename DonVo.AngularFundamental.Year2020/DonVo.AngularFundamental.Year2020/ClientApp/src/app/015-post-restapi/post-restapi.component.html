@@ -1,0 +1,30 @@
+<div class="jumbotron">
+  <h2>Dummy login form</h2>
+  <!--Let on use of Local template variables #email en #password -->
+  <input #email type="text"
+         class="form-control-lg" placeholder="email...">
+  <input #password type="text"
+         class="form-control-lg" placeholder="password...">
+  <p>
+    <button class="btn btn-primary"
+            (click)="doLogin()">
+      Login
+    </button>
+  </p>
+  <pre>
+    (expected object by reqres.in):
+    {{ '{' }}
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka"
+    }
+  </pre>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <!-- shows responses from http://reqres.in/ -->
+    <h3>Result from http://reqres.in:</h3>
+    <pre>
+{{ response | json }}
+        </pre>
+  </div>
+</div>

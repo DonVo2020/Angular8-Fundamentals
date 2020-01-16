@@ -28,6 +28,7 @@ import { ServicesHttpCRUDComponent } from './011-services-http-CRUD/services-htt
 import { ServicesAsyncPipeComponent } from './012-services-async-pipe/services-async-pipe.component';
 import { ServicesLiveComponent } from './013-services-live/services-live.component';
 import { ServicesLiveWithMappingComponent } from './014-services-live-with-mapping/services-live-with-mapping.component';
+import { PostRestApiComponent } from './015-post-restapi/post-restapi.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ServicesLiveWithMappingComponent } from './014-services-live-with-mappi
     ServicesHttpCRUDComponent,
     ServicesAsyncPipeComponent,
     ServicesLiveComponent,
-    ServicesLiveWithMappingComponent
+    ServicesLiveWithMappingComponent,
+    PostRestApiComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -70,6 +72,7 @@ import { ServicesLiveWithMappingComponent } from './014-services-live-with-mappi
       { path: 'services-async-pipe', component: ServicesAsyncPipeComponent },
       { path: 'services-live', component: ServicesLiveComponent },
       { path: 'services-live-with-mapping', component: ServicesLiveWithMappingComponent },
+      { path: 'post-restapi', component: PostRestApiComponent },
     ])
   ],
   providers: [CityService, ApiService,
