@@ -1,6 +1,16 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from "./app.component";
 import { HomeComponent } from './home/home.component';
+import { CityAddComponent } from "./shared/components/city-add.component";
+import { CityDetailComponent } from "./shared/components/city-detail.component";
+import { LoginComponent } from "./login/login.component";
+
+// Guards
+import { CanActivateViaAuthGuard } from "./shared/guards/canActivateViaAuthGuard";
+import { CanDeactivateComponent } from "./shared/components/canDeactivateComponent";
+import { CanDeactivateGuard } from "./shared/guards/canDeactivateGuard";
+
+
 
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
 import { EventBindingComponent } from './002-event-binding/event-binding.component';
@@ -22,8 +32,8 @@ import { ComponentsInputsComponent } from './017-components-inputs/components-in
 import { ComponentsOutputsComponent } from './018-components-outputs/components-outputs.component';
 import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-ordercomponent.component';
 import { RouteSimpleComponent } from './020-router-simple/router-simple.component';
-import { CityAddComponent } from "./shared/components/city-add.component";
 import { RouterParameterComponent } from './021-router-parameter/router-parameter.component';
+import { RouterGuardsComponent } from './022-router-guards/router-guards.component';
 
 // Routing table in this application.
 // The table is loaded via app.module.ts.
@@ -31,7 +41,33 @@ import { RouterParameterComponent } from './021-router-parameter/router-paramete
 // often inside the file with the module. (as is the case with ng new <name> --routing)
 export const AppRoutes: Routes = [
   //{ path: '', component: AppComponent },
-  { path: 'home', component: HomeComponent, pathMatch: 'full' },
+  //{ path: 'home', component: HomeComponent, pathMatch: 'full' },
+
+  {
+    path: 'home',
+    component: HomeComponent,
+    pathMatch: 'full',
+    canActivate: ['CanAlwaysActivateGuard'] // Function, defined in app.module.ts
+  },
+  {
+    path: 'add',
+    component: CityAddComponent,
+    canActivate: [CanActivateViaAuthGuard]
+  },
+  {
+    path: 'deactivate',
+    component: CanDeactivateComponent,
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'detail/:id',
+    component: CityDetailComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+
   { path: 'data-binding', component: DataBindingComponent },
   { path: 'event-binding', component: EventBindingComponent },
   { path: 'attribute-binding', component: AttributeBindingComponent },
@@ -53,7 +89,9 @@ export const AppRoutes: Routes = [
   { path: 'pubsub-ordercomponent', component: PubSubOrderComponent },
   { path: 'router-simple', component: RouteSimpleComponent },
   { path: 'router-parameter', component: RouterParameterComponent },
-  { path: 'add', component: CityAddComponent },
+  //{ path: 'add', component: CityAddComponent },
+  { path: 'detail/:id', component: CityDetailComponent },
+  { path: 'router-guards', component: RouterGuardsComponent },
   {
     // catch all route
     path: '**',

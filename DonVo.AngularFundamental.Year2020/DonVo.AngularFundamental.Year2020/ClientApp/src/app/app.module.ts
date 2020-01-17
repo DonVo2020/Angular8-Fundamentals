@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutes } from './app.routes';
 
@@ -11,11 +12,25 @@ import { ApiService } from './shared/services/api.service';
 import { CityService } from './shared/services/city.service';
 import { MovieService } from './shared/services/movie.service';
 import { OrderService } from './shared/services/order.service';
+import { AuthService } from './shared/services/auth.service';
+
+// guards
+import { CanActivateViaAuthGuard } from './shared/guards/canActivateViaAuthGuard';
+import { CanDeactivateGuard } from './shared/guards/canDeactivateGuard';
+
+// Inline providers/function not possible anymore. This
+// function is used inside providers: []
+export function guardFunction() {
+  console.log('Route requested');
+  return true; // do validation or other stuff here
+}
 
 // components
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { CanDeactivateComponent } from './shared/components/canDeactivateComponent';
+import { LoginComponent } from './login/login.component';
 
 // other componets
 import { MainComponent } from './shared/MainComponent';
@@ -45,13 +60,17 @@ import { ComponentsOutputsComponent } from './018-components-outputs/components-
 import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-ordercomponent.component';
 import { RouteSimpleComponent } from './020-router-simple/router-simple.component';
 import { RouterParameterComponent } from './021-router-parameter/router-parameter.component';
+import { RouterGuardsComponent } from './022-router-guards/router-guards.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CanDeactivateComponent,
     NavMenuComponent,
     HomeComponent,
+    LoginComponent,
     DataBindingComponent,
     EventBindingComponent,
     AttributeBindingComponent,
@@ -77,40 +96,54 @@ import { RouterParameterComponent } from './021-router-parameter/router-paramete
     MainComponent,
     RouteSimpleComponent,
     RouterParameterComponent,
+    RouterGuardsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    //RouterModule.forRoot(AppRoutes) // used for router only
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'data-binding', component: DataBindingComponent },
-      { path: 'event-binding', component: EventBindingComponent },
-      { path: 'attribute-binding', component: AttributeBindingComponent },
-      { path: 'two-ways-binding', component: TwoWaysBindingComponent },
-      { path: 'selection-list', component: SelectionListComponent },
-      { path: 'services-static', component: ServicesStaticComponent },
-      { path: 'services-http', component: ServicesHttpComponent },
-      { path: 'services-rxjs', component: ServicesRXJSComponent },
-      { path: 'services-cache', component: ServicesCacheComponent },
-      { path: 'services-apiService', component: ServicesAPIComponent },
-      { path: 'services-http-CRUD', component: ServicesHttpCRUDComponent },
-      { path: 'services-async-pipe', component: ServicesAsyncPipeComponent },
-      { path: 'services-live', component: ServicesLiveComponent },
-      { path: 'services-live-with-mapping', component: ServicesLiveWithMappingComponent },
-      { path: 'post-restapi', component: PostRestApiComponent },
-      { path: 'components', component: ComponentsComponent },
-      { path: 'components-inputs', component: ComponentsInputsComponent },
-      { path: 'components-outputs', component: ComponentsOutputsComponent },
-      { path: 'pubsub-ordercomponent', component: PubSubOrderComponent },
-      { path: 'router-simple', component: RouteSimpleComponent },
-      { path: 'router-parameter', component: RouterParameterComponent },
-    ])
+    ReactiveFormsModule,
+    RouterModule.forRoot(AppRoutes) // used for router only
+    //RouterModule.forRoot([
+    //  { path: '', component: HomeComponent, pathMatch: 'full' },
+    //  { path: 'data-binding', component: DataBindingComponent },
+    //  { path: 'event-binding', component: EventBindingComponent },
+    //  { path: 'attribute-binding', component: AttributeBindingComponent },
+    //  { path: 'two-ways-binding', component: TwoWaysBindingComponent },
+    //  { path: 'selection-list', component: SelectionListComponent },
+    //  { path: 'services-static', component: ServicesStaticComponent },
+    //  { path: 'services-http', component: ServicesHttpComponent },
+    //  { path: 'services-rxjs', component: ServicesRXJSComponent },
+    //  { path: 'services-cache', component: ServicesCacheComponent },
+    //  { path: 'services-apiService', component: ServicesAPIComponent },
+    //  { path: 'services-http-CRUD', component: ServicesHttpCRUDComponent },
+    //  { path: 'services-async-pipe', component: ServicesAsyncPipeComponent },
+    //  { path: 'services-live', component: ServicesLiveComponent },
+    //  { path: 'services-live-with-mapping', component: ServicesLiveWithMappingComponent },
+    //  { path: 'post-restapi', component: PostRestApiComponent },
+    //  { path: 'components', component: ComponentsComponent },
+    //  { path: 'components-inputs', component: ComponentsInputsComponent },
+    //  { path: 'components-outputs', component: ComponentsOutputsComponent },
+    //  { path: 'pubsub-ordercomponent', component: PubSubOrderComponent },
+    //  { path: 'router-simple', component: RouteSimpleComponent },
+    //  { path: 'router-parameter', component: RouterParameterComponent },
+    //  { path: 'router-simple', component: RouteSimpleComponent },
+    //  { path: 'router-parameter', component: RouterParameterComponent },
+    //  { path: 'add', component: CityAddComponent },
+    //  { path: 'detail/:id', component: CityDetailComponent },
+    //  { path: 'router-guards', component: RouterGuardsComponent },
+    //])
   ],
   providers: [CityService, ApiService, OrderService,
-              { provide: MovieService, useClass: MovieService }],
-  //bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
-  bootstrap: [AppComponent]
+    { provide: MovieService, useClass: MovieService },
+    AuthService,
+    {
+      provide: 'CanAlwaysActivateGuard', // Guard as a function
+      useValue: guardFunction
+    },
+    CanActivateViaAuthGuard,
+    CanDeactivateGuard],
+  bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
+  //bootstrap: [AppComponent]
 })
 export class AppModule { }

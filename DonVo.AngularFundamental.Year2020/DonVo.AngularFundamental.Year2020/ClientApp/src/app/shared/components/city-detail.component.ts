@@ -20,45 +20,45 @@ import { CityService } from '../services/city.service';
 	//</div>
 	//`
 
-  // This template is for @Ouput
-  template: `
-	<h2>City details
-		<button (click)="rate(1)" class="btn btn-sm btn-success">+1</button>
-		<button (click)="rate(-1)" class="btn btn-sm btn-danger">-1</button>
-		<button (click)="favorite()" class="btn btn-sm btn-default">favorite</button>
-		<span [hidden]="!isFavorite">Favorite!</span>
-	</h2>
-		<ul class="list-group">
-			<li class="list-group-item">Name: {{ city.name }}</li>
-			<li class="list-group-item">Province: {{ city.stateOrProvince }}</li>
-			<li class="list-group-item">Highlights: {{ city.highlights }}</li>
-		</ul>
-		<img src="../assets/img/{{ city.name}}.jpg" alt="Photo of {{ city.name }}" class="img-fluid"/>
-	`
+ // // This template is for @Ouput
+ // template: `
+	//<h2>City details
+	//	<button (click)="rate(1)" class="btn btn-sm btn-success">+1</button>
+	//	<button (click)="rate(-1)" class="btn btn-sm btn-danger">-1</button>
+	//	<button (click)="favorite()" class="btn btn-sm btn-default">favorite</button>
+	//	<span [hidden]="!isFavorite">Favorite!</span>
+	//</h2>
+	//	<ul class="list-group">
+	//		<li class="list-group-item">Name: {{ city.name }}</li>
+	//		<li class="list-group-item">Province: {{ city.stateOrProvince }}</li>
+	//		<li class="list-group-item">Highlights: {{ city.highlights }}</li>
+	//	</ul>
+	//	<img src="../assets/img/{{ city.name}}.jpg" alt="Photo of {{ city.name }}" class="img-fluid"/>
+	//`
 
-//// this template is for router-parameter
-//  template: `<h1>City Detail</h1>
-//    <h2>Details for city: {{ id }}</h2>
-//    <h2>Name for city: {{ name }}</h2>
+// this template is for router-parameter
+  template: `<h1>City Detail</h1>
+    <h2>Details for city: {{ id }}</h2>
+    <h2>Name for city: {{ name }}</h2>
 
-//<!--    <div *ngIf="currentCity$ | async as currentCity; else loading">-->
-//<!--        <h2>Details in front of city: {{ currentCity.name }}</h2>-->
-//<!--        <ul class="list-group">-->
-//<!--            <li class="list-group-item">Name: {{ currentCity.name }}</li>-->
-//<!--            <li class="list-group-item">Province: {{ currentCity.province }}</li>-->
-//<!--            <li class="list-group-item">Highlights: {{ currentCity.highlights }}</li>-->
-//<!--        </ul>-->
-//<!--    </div>-->
-//<!--    &lt;!&ndash;- Template for loading data-&ndash;&gt;-->
-//<!--    <ng-template #loading>-->
-//<!--        <div style="color: red">-->
-//<!--            <h2>Angular - else templates</h2>-->
-//<!--            <h3>loading user data...</h3>-->
-//<!--            <img src="../assets/loading_spinner.gif" alt="loading indicator...">-->
-//<!--        </div>-->
-//<!--    </ng-template>-->
+<!--    <div *ngIf="currentCity$ | async as currentCity; else loading">-->
+<!--        <h2>Details in front of city: {{ currentCity.name }}</h2>-->
+<!--        <ul class="list-group">-->
+<!--            <li class="list-group-item">Name: {{ currentCity.name }}</li>-->
+<!--            <li class="list-group-item">Province: {{ currentCity.province }}</li>-->
+<!--            <li class="list-group-item">Highlights: {{ currentCity.highlights }}</li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;- Template for loading data-&ndash;&gt;-->
+<!--    <ng-template #loading>-->
+<!--        <div style="color: red">-->
+<!--            <h2>Angular - else templates</h2>-->
+<!--            <h3>loading user data...</h3>-->
+<!--            <img src="../assets/loading_spinner.gif" alt="loading indicator...">-->
+<!--        </div>-->
+<!--    </ng-template>-->
 
-//    `
+    `
 })
 
 export class CityDetailComponent {
