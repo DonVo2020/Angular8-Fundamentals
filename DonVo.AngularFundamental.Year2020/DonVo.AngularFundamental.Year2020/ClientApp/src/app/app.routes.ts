@@ -38,6 +38,7 @@ import { FormTemplateDrivenComponent3 } from './023-forms-template-driven/forms-
 import { FormTemplateDrivenComponent4 } from './023-forms-template-driven/forms-template-driven4.component';
 import { FormsModelDriven1Component } from './024-forms-model-driven/forms-model-driven1.component';
 import { FormsModelDriven2Component } from './024-forms-model-driven/forms-model-driven2.component';
+import { FormsTypeAHeadComponent } from './025-forms-typeahead/forms-typeahead.component';
 
 // Routing table in this application.
 // The table is loaded via app.module.ts.
@@ -99,6 +100,7 @@ export const AppRoutes: Routes = [
   { path: 'forms-template-driven4', component: FormTemplateDrivenComponent4 },
   { path: 'forms-model-driven1', component: FormsModelDriven1Component },
   { path: 'forms-model-driven2', component: FormsModelDriven2Component },
+  { path: 'forms-typeahead', component: FormsTypeAHeadComponent },
   {
     // catch all route
     path: '**',

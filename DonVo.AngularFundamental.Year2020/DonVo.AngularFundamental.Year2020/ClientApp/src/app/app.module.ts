@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule  } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { CityService } from './shared/services/city.service';
 import { MovieService } from './shared/services/movie.service';
 import { OrderService } from './shared/services/order.service';
 import { AuthService } from './shared/services/auth.service';
+import { WikipediaService } from './shared/services/wikipedia.service';
 
 // guards
 import { CanActivateViaAuthGuard } from './shared/guards/canActivateViaAuthGuard';
@@ -67,6 +68,7 @@ import { FormTemplateDrivenComponent3 } from './023-forms-template-driven/forms-
 import { FormTemplateDrivenComponent4 } from './023-forms-template-driven/forms-template-driven4.component';
 import { FormsModelDriven1Component } from './024-forms-model-driven/forms-model-driven1.component';
 import { FormsModelDriven2Component } from './024-forms-model-driven/forms-model-driven2.component';
+import { FormsTypeAHeadComponent } from './025-forms-typeahead/forms-typeahead.component';
 
 
 @NgModule({
@@ -108,10 +110,11 @@ import { FormsModelDriven2Component } from './024-forms-model-driven/forms-model
     FormTemplateDrivenComponent4,
     FormsModelDriven1Component,
     FormsModelDriven2Component,
+    FormsTypeAHeadComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
+    HttpClientModule, HttpClientJsonpModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes) // used for router only
@@ -145,7 +148,7 @@ import { FormsModelDriven2Component } from './024-forms-model-driven/forms-model
     //  { path: 'router-guards', component: RouterGuardsComponent },
     //])
   ],
-  providers: [CityService, ApiService, OrderService,
+  providers: [CityService, ApiService, OrderService, WikipediaService,
     { provide: MovieService, useClass: MovieService },
     AuthService,
     {
@@ -154,7 +157,7 @@ import { FormsModelDriven2Component } from './024-forms-model-driven/forms-model
     },
     CanActivateViaAuthGuard,
     CanDeactivateGuard],
-  //bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
-  bootstrap: [AppComponent]
+  bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
+  //bootstrap: [AppComponent]
 })
 export class AppModule { }
