@@ -16,6 +16,9 @@ import { DefaultImagePipe } from "./shared/pipes/defaultImage.pipe";
 // Directives
 import { HighlightDirective } from './shared/directives/highlight.directive';
 
+import { CityDetail } from './shared/components/city.detail';
+import { CityOrders } from './shared/components/city.orders';
+
 // Inline providers/function not possible anymore. This
 // function is used inside providers: []
 export function guardFunction() {
@@ -32,7 +35,9 @@ import { MainComponent } from './shared/MainComponent';
     // Components are now bundled in the routing module
     routingComponents,
     FilterPipe, DefaultImagePipe,
-    HighlightDirective
+    HighlightDirective,
+    CityDetail,
+    CityOrders,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

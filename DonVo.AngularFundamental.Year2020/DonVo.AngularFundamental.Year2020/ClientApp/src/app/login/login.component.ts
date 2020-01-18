@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Http, Headers } from "@angular/http";
+//import { Http, Headers } from "@angular/common/http";
 import { map } from 'rxjs/operators';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'login-component',
@@ -37,7 +38,7 @@ import { map } from 'rxjs/operators';
 export class LoginComponent {
   response: string = '';
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -55,13 +56,13 @@ export class LoginComponent {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    this.http.post(url, JSON.stringify(data),
-      { headers: headers }).pipe(
-      map(res => res.json()))
-      .subscribe(res => this.response = res,
-        err => console.log('ERROR:', err),
-        () => console.log('Login complete')
-      );
+    //this.http.post(url, JSON.stringify(data),
+    //  { headers: headers }).pipe(
+    //  map(res => res.json()))
+    //  .subscribe(res => this.response = res,
+    //    err => console.log('ERROR:', err),
+    //    () => console.log('Login complete')
+    //  );
   }
 }
 

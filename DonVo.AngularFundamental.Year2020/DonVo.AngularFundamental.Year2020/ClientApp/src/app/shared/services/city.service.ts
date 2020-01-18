@@ -149,4 +149,8 @@ export class CityService {
       )
   }
 
+  getCitiesAoT(): Observable<City[]> {
+    return this.http.get<City[]>('assets/data/cities2.json');
+  }
+
 }

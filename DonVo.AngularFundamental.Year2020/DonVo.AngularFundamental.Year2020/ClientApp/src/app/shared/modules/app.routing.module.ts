@@ -53,6 +53,7 @@ import { PipesDemoComponent } from '../../027-pipes-demo/pipes-demo.component';
 import { ScopedStyle1Component } from '../../028-scoped-styles/scoped-styles-1.component';
 import { ScopedStyle2Component } from '../../028-scoped-styles/scoped-styles-2.component';
 import { HighlightDirectiveComponent } from '../../029-highlight-directive/highlight-directive.component';
+import { AoTCompilationComponent } from '../../030-aot-compilation/aot-compilation.component';
 
 // 3. Routing table
 const AppRoutes: Routes = [
@@ -114,6 +115,7 @@ const AppRoutes: Routes = [
   { path: 'pipes-demo', component: PipesDemoComponent },
   { path: 'scoped-styles-1', component: ScopedStyle1Component },
   { path: 'highlight-directive', component: HighlightDirectiveComponent },
+  { path: 'aot-compilation', component: AoTCompilationComponent },
   {
     // catch all route
     path: '**',
@@ -171,4 +173,5 @@ export const routingComponents = [
   ScopedStyle1Component,
   ScopedStyle2Component,
   HighlightDirectiveComponent,
+  AoTCompilationComponent,
 ];
