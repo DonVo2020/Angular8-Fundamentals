@@ -1,18 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Http, Headers } from "@angular/http";
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-login',
+  selector: 'login-component',
   template: `
-   <h1>Dummy Login page</h1>
-      <p>You are not logged in, therefore you are denied access to the requested resource.</p>
-  `,
-  styleUrls: ['./login.component.css']
+		<div class="jumbotron">
+			<h1>Dummy login form</h1>
+			<!--Let op gebruik van Local template variables #email en #password -->
+			<input #email type="text"
+				   class="input-lg" placeholder="email...">
+			<input #password type="text"
+				   class="input-lg" placeholder="password...">
+			<p>
+				<button class="btn btn-primary"
+						(click)="doLogin(email, password)">Login
+				</button>
+			</p>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<!-- toon response van http://reqres.in/ -->
+				<h2>Result from http://reqres.in:</h2>
+				<pre>
+{{ response | json }}
+				</pre>
+			</div>
+		</div>
+
+	`
 })
-export class LoginComponent implements OnInit {
 
-  constructor() { }
+// Controller voor je View. Let op het gebruik van @ViewChild
+// om referentie naar element in de view op te halen.
+// Andere manier is om [(ngModel)] te gebruiken, maar dan moet je ook FormsModule importeren.
+export class LoginComponent {
+  response: string = '';
 
-  ngOnInit() {
+  constructor(private http: Http) {
+
   }
 
+  doLogin(email: string, password: string): void {
+    // Post data naar reqres.in API.
+    // EIGENLIJK moet dit via een service, maar nu rechtstreeks in de controller/class gedefinieerd.
+    // Zie voor meer info over deze API http://reqres.in.
+    let url = 'http://reqres.in/api/login';
+
+    let data = {
+      "email": email,
+      "password": password
+    };
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    this.http.post(url, JSON.stringify(data),
+      { headers: headers }).pipe(
+      map(res => res.json()))
+      .subscribe(res => this.response = res,
+        err => console.log('ERROR:', err),
+        () => console.log('Login complete')
+      );
+  }
 }
+

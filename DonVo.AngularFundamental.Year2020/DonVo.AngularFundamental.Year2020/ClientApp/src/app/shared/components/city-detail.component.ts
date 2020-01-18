@@ -45,7 +45,7 @@ import { CityService } from '../services/city.service';
 //<!--        <h2>Details in front of city: {{ currentCity.name }}</h2>-->
 //<!--        <ul class="list-group">-->
 //<!--            <li class="list-group-item">Name: {{ currentCity.name }}</li>-->
-//<!--            <li class="list-group-item">Province: {{ currentCity.province }}</li>-->
+//<!--            <li class="list-group-item">Province: {{ currentCity.stateOrProvince }}</li>-->
 //<!--            <li class="list-group-item">Highlights: {{ currentCity.highlights }}</li>-->
 //<!--        </ul>-->
 //<!--    </div>-->
@@ -59,6 +59,7 @@ import { CityService } from '../services/city.service';
 //<!--    </ng-template>-->
 
 //    `
+
 })
 
 export class CityDetailComponent {

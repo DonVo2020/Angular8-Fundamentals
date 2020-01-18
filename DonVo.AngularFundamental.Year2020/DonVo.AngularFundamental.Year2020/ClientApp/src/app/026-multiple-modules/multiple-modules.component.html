@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>Routing and Services in own @NgModule</h1>
+    <p>
+      Routing and sercices are now in their own @NgModule in <em>app.routing.module.ts</em> and
+      <em>app.services.module.ts</em> and are imported into the main module <em>app.module.ts</em>
+      <h2>My favorite cities are :</h2>
+      <ul class="list-group">
+        <li *ngFor="let city of cities" class="list-group-item">
+          <a [routerLink]="['/detail', city.id]"> {{ city.id}} - {{ city.name }}</a>
+        </li>
+      </ul>
+      <button *ngIf="currentCity" class="btn btn-primary" (click)="clearCity()">Clear</button>
+</div>
+  <div class="col-md-6">
+  </div>
+</div>
