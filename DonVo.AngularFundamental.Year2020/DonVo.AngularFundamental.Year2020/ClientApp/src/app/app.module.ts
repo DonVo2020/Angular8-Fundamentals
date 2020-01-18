@@ -66,6 +66,7 @@ import { FormTemplateDrivenComponent2 } from './023-forms-template-driven/forms-
 import { FormTemplateDrivenComponent3 } from './023-forms-template-driven/forms-template-driven3.component';
 import { FormTemplateDrivenComponent4 } from './023-forms-template-driven/forms-template-driven4.component';
 import { FormsModelDriven1Component } from './024-forms-model-driven/forms-model-driven1.component';
+import { FormsModelDriven2Component } from './024-forms-model-driven/forms-model-driven2.component';
 
 
 @NgModule({
@@ -106,6 +107,7 @@ import { FormsModelDriven1Component } from './024-forms-model-driven/forms-model
     FormTemplateDrivenComponent3,
     FormTemplateDrivenComponent4,
     FormsModelDriven1Component,
+    FormsModelDriven2Component,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
