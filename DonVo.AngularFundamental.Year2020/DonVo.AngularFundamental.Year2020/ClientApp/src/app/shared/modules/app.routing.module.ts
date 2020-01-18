@@ -52,6 +52,7 @@ import { MultipleModulesComponent } from '../../026-multiple-modules/multiple-mo
 import { PipesDemoComponent } from '../../027-pipes-demo/pipes-demo.component';
 import { ScopedStyle1Component } from '../../028-scoped-styles/scoped-styles-1.component';
 import { ScopedStyle2Component } from '../../028-scoped-styles/scoped-styles-2.component';
+import { HighlightDirectiveComponent } from '../../029-highlight-directive/highlight-directive.component';
 
 // 3. Routing table
 const AppRoutes: Routes = [
@@ -112,6 +113,7 @@ const AppRoutes: Routes = [
   { path: 'multiple-modules', component: MultipleModulesComponent },
   { path: 'pipes-demo', component: PipesDemoComponent },
   { path: 'scoped-styles-1', component: ScopedStyle1Component },
+  { path: 'highlight-directive', component: HighlightDirectiveComponent },
   {
     // catch all route
     path: '**',
@@ -168,4 +170,5 @@ export const routingComponents = [
   PipesDemoComponent,
   ScopedStyle1Component,
   ScopedStyle2Component,
+  HighlightDirectiveComponent,
 ];
