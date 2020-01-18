@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Houston",
+    "province": "TX",
+    "highlights": [
+      "Downtown",
+      "Park"
+    ],
+    "rating": 0,
+    "price": 99
+  },
+  {
+    "id": 2,
+    "name": "Boston",
+    "province": "MA",
+    "highlights": [
+      "Downtown"
+    ],
+    "rating": 0,
+    "price": 79.95
+  },
+  {
+    "id": 3,
+    "name": "Miami",
+    "province": "FL",
+    "highlights": [
+      "Downtown",
+      "Island"
+    ],
+    "rating": 0,
+    "price": 119
+  },
+  {
+    "id": 4,
+    "name": "Chicago",
+    "province": "IL",
+    "highlights": [
+      "Downtown",
+      "River"
+    ],
+    "rating": 0,
+    "price": 85
+  },
+  {
+    "id": 5,
+    "name": "Seattle",
+    "province": "WA",
+    "highlights": [
+      "Downtown"
+    ],
+    "rating": 0,
+    "price": 69.50
+  },
+  {
+    "id": 6,
+    "name": "Raleigh",
+    "province": "NC",
+    "highlights": [
+      "Downtown"
+    ],
+    "rating": 0,
+    "price": 109
+  }
+]

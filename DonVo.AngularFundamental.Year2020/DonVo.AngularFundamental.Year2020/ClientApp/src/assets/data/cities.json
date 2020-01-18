@@ -4,34 +4,44 @@
     "name": "Houston",
     "stateOrProvince": "TX",
     "rating": 0,
-    "highlights": "Downtown"
+    "highlights": "Downtown",
+    "image": "Houston.jpg",
+    "price": 79.95
   },
   {
     "id": 2,
     "name": "Boston",
     "stateOrProvince": "MA",
     "rating": 0,
-    "highlights": "Downtown"
+    "highlights": "Downtown",
+    "image": "Boston.jpg",
+    "price": 99
   },
   {
     "id": 3,
     "name": "Miami",
     "stateOrProvince": "FL",
     "rating": 0,
-    "highlights": "Downtown"
+    "highlights": "Downtown",
+    "image": "Miami.jpg",
+    "price": 79.95
   },
   {
     "id": 4,
     "name": "Chicago",
     "stateOrProvince": "IL",
     "rating": 0,
-    "highlights": "Downtown"
+    "highlights": "Downtown",
+    "image": "Chicago.jpg",
+    "price": 119
   },
   {
     "id": 5,
     "name": "Seattle",
     "stateOrProvince": "WA",
     "rating": 0,
-    "highlights": "Downtown"
+    "highlights": "Downtown",
+    "image": "Seattle.jpg",
+    "price": 85
   }
 ]
