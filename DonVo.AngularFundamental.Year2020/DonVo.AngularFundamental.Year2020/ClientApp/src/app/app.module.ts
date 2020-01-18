@@ -11,6 +11,10 @@ import { AppServicesModule } from "./shared/modules/app.services.module";
 // Import Login module w/ Login component
 import { LoginModule } from './shared/modules/login.module';
 
+// Pipes
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { DefaultImagePipe } from "./shared/pipes/defaultImage.pipe";
+
 // Inline providers/function not possible anymore. This
 // function is used inside providers: []
 export function guardFunction() {
@@ -25,7 +29,8 @@ import { MainComponent } from './shared/MainComponent';
   declarations: [
     MainComponent,
     // Components are now bundled in the routing module
-    routingComponents
+    routingComponents,
+    FilterPipe, DefaultImagePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

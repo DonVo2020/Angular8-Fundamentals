@@ -49,6 +49,7 @@ import { FormsModelDriven1Component } from '../../024-forms-model-driven/forms-m
 import { FormsModelDriven2Component } from '../../024-forms-model-driven/forms-model-driven2.component';
 import { FormsTypeAHeadComponent } from '../../025-forms-typeahead/forms-typeahead.component';
 import { MultipleModulesComponent } from '../../026-multiple-modules/multiple-modules.component';
+import { PipesDemoComponent } from '../../027-pipes-demo/pipes-demo.component';
 
 // 3. Routing table
 const AppRoutes: Routes = [
@@ -107,6 +108,7 @@ const AppRoutes: Routes = [
   { path: 'forms-model-driven2', component: FormsModelDriven2Component },
   { path: 'forms-typeahead', component: FormsTypeAHeadComponent },
   { path: 'multiple-modules', component: MultipleModulesComponent },
+  { path: 'pipes-demo', component: PipesDemoComponent },
   {
     // catch all route
     path: '**',
@@ -160,4 +162,5 @@ export const routingComponents = [
   FormsModelDriven2Component,
   FormsTypeAHeadComponent,
   MultipleModulesComponent,
+  PipesDemoComponent,
 ];

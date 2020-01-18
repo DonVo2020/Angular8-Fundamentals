@@ -6,6 +6,7 @@ export class City {
     public rating: number = 0,
     public highlights: string[] = ['N/A'],
     public favorite?: boolean,
-    public price: number = 0
+    public price: number = 0,
+    public image: string = null,
   ) { }
 }
