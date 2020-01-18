@@ -1,5 +1,4 @@
-// canActivateViaAuthGuard.ts
-// Een voorbeeld Guard die authentication service aanroept om user wel/geen toegang te verlenen.
+// An example Guard calling on authentication service to grant user access.
 import {Injectable} from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';

@@ -10,8 +10,6 @@ import { CanActivateViaAuthGuard } from "./shared/guards/canActivateViaAuthGuard
 import { CanDeactivateComponent } from "./shared/components/canDeactivateComponent";
 import { CanDeactivateGuard } from "./shared/guards/canDeactivateGuard";
 
-
-
 import { DataBindingComponent } from './001-data-binding/data-binding.component';
 import { EventBindingComponent } from './002-event-binding/event-binding.component';
 import { AttributeBindingComponent } from './003-attribute-binding/attribute-binding.component';
@@ -34,6 +32,10 @@ import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-orderco
 import { RouteSimpleComponent } from './020-router-simple/router-simple.component';
 import { RouterParameterComponent } from './021-router-parameter/router-parameter.component';
 import { RouterGuardsComponent } from './022-router-guards/router-guards.component';
+import { FormTemplateDrivenComponent1 } from './023-forms-template-driven/forms-template-driven1.component';
+import { FormTemplateDrivenComponent2 } from './023-forms-template-driven/forms-template-driven2.component';
+import { FormTemplateDrivenComponent3 } from './023-forms-template-driven/forms-template-driven3.component';
+import { FormTemplateDrivenComponent4 } from './023-forms-template-driven/forms-template-driven4.component';
 
 // Routing table in this application.
 // The table is loaded via app.module.ts.
@@ -41,8 +43,6 @@ import { RouterGuardsComponent } from './022-router-guards/router-guards.compone
 // often inside the file with the module. (as is the case with ng new <name> --routing)
 export const AppRoutes: Routes = [
   //{ path: '', component: AppComponent },
-  //{ path: 'home', component: HomeComponent, pathMatch: 'full' },
-
   {
     path: 'home',
     component: HomeComponent,
@@ -89,9 +89,12 @@ export const AppRoutes: Routes = [
   { path: 'pubsub-ordercomponent', component: PubSubOrderComponent },
   { path: 'router-simple', component: RouteSimpleComponent },
   { path: 'router-parameter', component: RouterParameterComponent },
-  //{ path: 'add', component: CityAddComponent },
   { path: 'detail/:id', component: CityDetailComponent },
   { path: 'router-guards', component: RouterGuardsComponent },
+  { path: 'forms-template-driven1', component: FormTemplateDrivenComponent1 },
+  { path: 'forms-template-driven2', component: FormTemplateDrivenComponent2 },
+  { path: 'forms-template-driven3', component: FormTemplateDrivenComponent3 },
+  { path: 'forms-template-driven4', component: FormTemplateDrivenComponent4 },
   {
     // catch all route
     path: '**',

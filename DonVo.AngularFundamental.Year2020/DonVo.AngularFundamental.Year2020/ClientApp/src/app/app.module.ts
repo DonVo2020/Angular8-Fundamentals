@@ -61,7 +61,10 @@ import { PubSubOrderComponent } from './019-pubsub-ordercomponent/pubsub-orderco
 import { RouteSimpleComponent } from './020-router-simple/router-simple.component';
 import { RouterParameterComponent } from './021-router-parameter/router-parameter.component';
 import { RouterGuardsComponent } from './022-router-guards/router-guards.component';
-
+import { FormTemplateDrivenComponent1 } from './023-forms-template-driven/forms-template-driven1.component';
+import { FormTemplateDrivenComponent2 } from './023-forms-template-driven/forms-template-driven2.component';
+import { FormTemplateDrivenComponent3 } from './023-forms-template-driven/forms-template-driven3.component';
+import { FormTemplateDrivenComponent4 } from './023-forms-template-driven/forms-template-driven4.component';
 
 
 @NgModule({
@@ -97,6 +100,10 @@ import { RouterGuardsComponent } from './022-router-guards/router-guards.compone
     RouteSimpleComponent,
     RouterParameterComponent,
     RouterGuardsComponent,
+    FormTemplateDrivenComponent1,
+    FormTemplateDrivenComponent2,
+    FormTemplateDrivenComponent3,
+    FormTemplateDrivenComponent4,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -143,7 +150,7 @@ import { RouterGuardsComponent } from './022-router-guards/router-guards.compone
     },
     CanActivateViaAuthGuard,
     CanDeactivateGuard],
-  bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
-  //bootstrap: [AppComponent]
+  //bootstrap: [MainComponent, AppComponent] // MainComponent is used for router only
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

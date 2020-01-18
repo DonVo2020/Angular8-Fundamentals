@@ -20,7 +20,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 
 // Class met properties
 export class CanDeactivateComponent implements OnInit {
-  // Properties voor de component/class
+  // Properties for the component/class
   myForm: FormGroup = new FormGroup({
     txtInput: new FormControl()
   });
@@ -28,7 +28,7 @@ export class CanDeactivateComponent implements OnInit {
   constructor(private route: Router) { }
 
   ngOnInit() {
-    //...eventuele extra initialisaties
+    //...any additional initializations
   }
 
   moveAway() {
