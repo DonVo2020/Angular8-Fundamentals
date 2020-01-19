@@ -16,6 +16,9 @@ import { CanDeactivateComponent } from "../components/canDeactivateComponent";
 import { CanDeactivateGuard } from "../guards/canDeactivateGuard";
 //import { AuthGuard } from '../guards/auth.guard';
 
+// Routing Loader
+import { MyCustomPreloader } from '../../app.routing.loader';
+
 import { CityOrdersComponent } from '../components/city-orders.component';
 import { CityAddComponent } from "../../shared/components/city-add.component";
 import { CityDetailComponent } from "../../shared/components/city-detail.component";
@@ -56,6 +59,7 @@ import { ScopedStyle2Component } from '../../028-scoped-styles/scoped-styles-2.c
 import { HighlightDirectiveComponent } from '../../029-highlight-directive/highlight-directive.component';
 import { AoTCompilationComponent } from '../../030-aot-compilation/aot-compilation.component';
 import { LazyLoadingComponent } from '../../031-lazy-loading/lazy-loading.component';
+import { CustomPreloadingComponent } from '../../032-custom-preloading/custom-preloading.component';
 
 // 3. Routing table
 const AppRoutes: Routes = [
@@ -120,7 +124,7 @@ const AppRoutes: Routes = [
   { path: 'highlight-directive', component: HighlightDirectiveComponent },
   { path: 'aot-compilation', component: AoTCompilationComponent },
   
-  /* PART II*/
+  /********************************** PART II ***************************************/
   { path: 'lazy-loading', component: LazyLoadingComponent },
   // New notation for lazy loading (Angular 8+):
   {
@@ -136,7 +140,24 @@ const AppRoutes: Routes = [
   // Old notation (Angular 4-7)
   //   {path: 'customers', loadChildren: './customer/customer.module#CustomerModule'},
   //   {path: 'products', loadChildren: './products/products.module#ProductsModule'},
-  /* end of PART II*/
+
+  { path: 'custom-preloading', component: CustomPreloadingComponent },
+  {
+    path: 'custom-preloading/customers',
+    loadChildren: () => import('../../032-custom-preloading/customer/customer.module')
+      .then(mod => mod.CustomerModule)
+  },
+  {
+    path: 'custom-preloading/products',
+    loadChildren: () => import('../../032-custom-preloading/products/products.module')
+      .then(mod => mod.ProductsModule)
+  },
+  {
+    path: 'custom-preloading/big-module',
+    loadChildren: '../../032-custom-preloading/very-big-module.module#VeryBigModule'
+  },
+/************************************* end of PART II ****************************************/
+
   {
     // catch all route
     path: '**',
@@ -147,7 +168,8 @@ const AppRoutes: Routes = [
 // 4. Declare *new* NgModule!
 @NgModule({
   imports: [RouterModule.forRoot(AppRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [MyCustomPreloader]
 })
 export class AppRoutingModule {
 }
@@ -196,6 +218,7 @@ export const routingComponents = [
   HighlightDirectiveComponent,
   AoTCompilationComponent,
   LazyLoadingComponent,
+  CustomPreloadingComponent,
 ];
 
 const config: ExtraOptions = {
