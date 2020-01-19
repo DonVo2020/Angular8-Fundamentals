@@ -2,7 +2,7 @@
 
 // 1. Import Router stuff
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 
 // 2. Import Components
 import { AppComponent } from '../../app.component';
@@ -11,9 +11,10 @@ import { NavMenuComponent } from '../../nav-menu/nav-menu.component';
 import { MainComponent } from '../MainComponent';
 
 // Guards
-import { CanActivateViaAuthGuard } from "../../shared/guards/canActivateViaAuthGuard";
-import { CanDeactivateComponent } from "../../shared/components/canDeactivateComponent";
-import { CanDeactivateGuard } from "../../shared/guards/canDeactivateGuard";
+import { CanActivateViaAuthGuard } from "../guards/canActivateViaAuthGuard";
+import { CanDeactivateComponent } from "../components/canDeactivateComponent";
+import { CanDeactivateGuard } from "../guards/canDeactivateGuard";
+//import { AuthGuard } from '../guards/auth.guard';
 
 import { CityOrdersComponent } from '../components/city-orders.component';
 import { CityAddComponent } from "../../shared/components/city-add.component";
@@ -54,6 +55,7 @@ import { ScopedStyle1Component } from '../../028-scoped-styles/scoped-styles-1.c
 import { ScopedStyle2Component } from '../../028-scoped-styles/scoped-styles-2.component';
 import { HighlightDirectiveComponent } from '../../029-highlight-directive/highlight-directive.component';
 import { AoTCompilationComponent } from '../../030-aot-compilation/aot-compilation.component';
+import { LazyLoadingComponent } from '../../031-lazy-loading/lazy-loading.component';
 
 // 3. Routing table
 const AppRoutes: Routes = [
@@ -62,6 +64,7 @@ const AppRoutes: Routes = [
     component: HomeComponent,
     pathMatch: 'full',
     canActivate: ['CanAlwaysActivateGuard'] // Function, defined in app.module.ts
+    //canActivate: [AuthGuard]
   },
   {
     path: 'add',
@@ -116,6 +119,24 @@ const AppRoutes: Routes = [
   { path: 'scoped-styles-1', component: ScopedStyle1Component },
   { path: 'highlight-directive', component: HighlightDirectiveComponent },
   { path: 'aot-compilation', component: AoTCompilationComponent },
+  
+  /* PART II*/
+  { path: 'lazy-loading', component: LazyLoadingComponent },
+  // New notation for lazy loading (Angular 8+):
+  {
+    path: 'lazy-loading/customers',
+    loadChildren: () => import('../../031-lazy-loading/customer/customer.module')
+      .then(mod => mod.CustomerModule)
+  },
+  {
+    path: 'lazy-loading/products',
+    loadChildren: () => import('../../031-lazy-loading/products/products.module')
+      .then(mod => mod.ProductsModule)
+  },
+  // Old notation (Angular 4-7)
+  //   {path: 'customers', loadChildren: './customer/customer.module#CustomerModule'},
+  //   {path: 'products', loadChildren: './products/products.module#ProductsModule'},
+  /* end of PART II*/
   {
     // catch all route
     path: '**',
@@ -174,4 +195,13 @@ export const routingComponents = [
   ScopedStyle2Component,
   HighlightDirectiveComponent,
   AoTCompilationComponent,
+  LazyLoadingComponent,
 ];
+
+const config: ExtraOptions = {
+  useHash: false,
+  enableTracing: false, // turn on for console.logging of routing events
+  // preloadingStrategy: PreloadAllModules // uncomment to load all modules lazily
+};
+
+RouterModule.forRoot(AppRoutes, config);

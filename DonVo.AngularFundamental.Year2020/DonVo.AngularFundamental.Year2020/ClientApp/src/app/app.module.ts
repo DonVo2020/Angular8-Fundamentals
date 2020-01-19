@@ -15,6 +15,8 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
 import { DefaultImagePipe } from "./shared/pipes/defaultImage.pipe";
 // Directives
 import { HighlightDirective } from './shared/directives/highlight.directive';
+// Authentication
+//import { AuthModule } from "./shared/modules/auth.module";
 
 import { CityDetail } from './shared/components/city.detail';
 import { CityOrders } from './shared/components/city.orders';
@@ -47,6 +49,7 @@ import { MainComponent } from './shared/MainComponent';
     ReactiveFormsModule,
     AppRoutingModule,
     AppServicesModule,
+    //AuthModule,
   ],
   // providers   : [
 	//		Not neccesary anymore, as these are defined in their own module

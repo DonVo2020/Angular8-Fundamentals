@@ -10,3 +10,9 @@
     background-color: #d1caca;
     border-color: #808080; /*set the color you want here*/
   }
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-primary {
+  color: #0d2075;
+  background-color: #8ef0e6;
+  border-color: #808080; /*set the color you want here*/
+}

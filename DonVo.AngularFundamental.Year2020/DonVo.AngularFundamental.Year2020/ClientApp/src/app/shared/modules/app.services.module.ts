@@ -14,6 +14,7 @@ import { WikipediaService } from '../services/wikipedia.service';
 // 2b. guards
 import { CanActivateViaAuthGuard } from '../guards/canActivateViaAuthGuard';
 import { CanDeactivateGuard } from '../guards/canDeactivateGuard';
+import { AuthGuard } from '../guards/auth.guard';
 
 export function guardFunction() {
   console.log("Route requested");
@@ -42,7 +43,8 @@ export function guardFunction() {
     OrderService,
     WikipediaService,
     CanActivateViaAuthGuard,
-    CanDeactivateGuard
+    CanDeactivateGuard,
+    AuthGuard,
   ]
 })
 export class AppServicesModule {
