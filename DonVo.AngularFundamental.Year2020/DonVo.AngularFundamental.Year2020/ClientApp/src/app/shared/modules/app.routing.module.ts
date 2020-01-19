@@ -57,9 +57,20 @@ import { PipesDemoComponent } from '../../027-pipes-demo/pipes-demo.component';
 import { ScopedStyle1Component } from '../../028-scoped-styles/scoped-styles-1.component';
 import { ScopedStyle2Component } from '../../028-scoped-styles/scoped-styles-2.component';
 import { HighlightDirectiveComponent } from '../../029-highlight-directive/highlight-directive.component';
-import { AoTCompilationComponent } from '../../030-aot-compilation/aot-compilation.component';
-import { LazyLoadingComponent } from '../../031-lazy-loading/lazy-loading.component';
-import { CustomPreloadingComponent } from '../../032-custom-preloading/custom-preloading.component';
+import { CarouselDirectiveComponent } from '../../030-carousel-directive/carousel-directive.component';
+import { AoTCompilationComponent } from '../../031-aot-compilation/aot-compilation.component';
+import { LazyLoadingComponent } from '../../032-lazy-loading/lazy-loading.component';
+import { CustomPreloadingComponent } from '../../033-custom-preloading/custom-preloading.component';
+import { ContentProjectionComponent } from '../../034-content-projection/content-projection.component';
+
+import { Card1Component } from '../../034-content-projection/card1/card1.component';
+import { Card2Component } from '../../034-content-projection/card2/card2.component';
+import { Card3Component } from '../../034-content-projection/card3/card3.component';
+import { Card4Component } from '../../034-content-projection/card4/card4.component';
+import { NewsletterComponent } from '../../034-content-projection/newsletter/newsletter.component';
+import { Card5Component } from '../../034-content-projection/card5/card5.component';
+import { MyButtonComponent } from '../../034-content-projection/my-button/my-button.component';
+
 
 // 3. Routing table
 const AppRoutes: Routes = [
@@ -122,6 +133,7 @@ const AppRoutes: Routes = [
   { path: 'pipes-demo', component: PipesDemoComponent },
   { path: 'scoped-styles-1', component: ScopedStyle1Component },
   { path: 'highlight-directive', component: HighlightDirectiveComponent },
+  { path: 'carousel-directive', component: CarouselDirectiveComponent },
   { path: 'aot-compilation', component: AoTCompilationComponent },
   
   /********************************** PART II ***************************************/
@@ -129,12 +141,12 @@ const AppRoutes: Routes = [
   // New notation for lazy loading (Angular 8+):
   {
     path: 'lazy-loading/customers',
-    loadChildren: () => import('../../031-lazy-loading/customer/customer.module')
+    loadChildren: () => import('../../032-lazy-loading/customer/customer.module')
       .then(mod => mod.CustomerModule)
   },
   {
     path: 'lazy-loading/products',
-    loadChildren: () => import('../../031-lazy-loading/products/products.module')
+    loadChildren: () => import('../../032-lazy-loading/products/products.module')
       .then(mod => mod.ProductsModule)
   },
   // Old notation (Angular 4-7)
@@ -144,18 +156,19 @@ const AppRoutes: Routes = [
   { path: 'custom-preloading', component: CustomPreloadingComponent },
   {
     path: 'custom-preloading/customers',
-    loadChildren: () => import('../../032-custom-preloading/customer/customer.module')
+    loadChildren: () => import('../../033-custom-preloading/customer/customer.module')
       .then(mod => mod.CustomerModule)
   },
   {
     path: 'custom-preloading/products',
-    loadChildren: () => import('../../032-custom-preloading/products/products.module')
+    loadChildren: () => import('../../033-custom-preloading/products/products.module')
       .then(mod => mod.ProductsModule)
   },
   {
     path: 'custom-preloading/big-module',
-    loadChildren: '../../032-custom-preloading/very-big-module.module#VeryBigModule'
+    loadChildren: '../../033-custom-preloading/very-big-module.module#VeryBigModule'
   },
+  { path: 'content-projection', component: ContentProjectionComponent },
 /************************************* end of PART II ****************************************/
 
   {
@@ -216,9 +229,18 @@ export const routingComponents = [
   ScopedStyle1Component,
   ScopedStyle2Component,
   HighlightDirectiveComponent,
+  CarouselDirectiveComponent,
   AoTCompilationComponent,
   LazyLoadingComponent,
   CustomPreloadingComponent,
+  ContentProjectionComponent,
+  Card1Component,
+  Card2Component,
+  Card3Component,
+  Card4Component,
+  NewsletterComponent,
+  Card5Component,
+  MyButtonComponent,
 ];
 
 const config: ExtraOptions = {

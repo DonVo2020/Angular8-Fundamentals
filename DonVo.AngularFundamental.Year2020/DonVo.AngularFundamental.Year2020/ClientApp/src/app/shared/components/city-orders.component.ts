@@ -20,12 +20,12 @@ import { CityOrderModel } from '../models/cityOrders.model';
         <tr *ngFor="let order of currentOrders">
           <td>{{ order.city.name}}</td>
           <td>{{ order.numBookings}}</td>
-          <td>{{ order.city.price | currency:'EUR':'symbol':'1.2'}}</td>
+          <td>{{ order.city.price | currency:'USD':'symbol':'1.2'}}</td>
         </tr>
         </tbody>
         <tr>
           <td colspan="2">Total</td>
-          <td><strong>{{totalPrice | currency:'USA':'symbol':'1.2'}}</strong></td>
+          <td><strong>{{totalPrice | currency:'USD':'symbol':'1.2'}}</strong></td>
         </tr>
       </table>
       <button class="btn btn-default" (click)="cancel()">Cancel</button>

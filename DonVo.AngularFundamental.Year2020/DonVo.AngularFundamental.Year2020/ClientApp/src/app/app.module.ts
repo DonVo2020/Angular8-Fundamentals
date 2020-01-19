@@ -15,6 +15,7 @@ import { FilterPipe } from './shared/pipes/filter.pipe';
 import { DefaultImagePipe } from "./shared/pipes/defaultImage.pipe";
 // Directives
 import { HighlightDirective } from './shared/directives/highlight.directive';
+import { CarouselDirective } from './shared/directives/carousel.directive';
 // Authentication
 //import { AuthModule } from "./shared/modules/auth.module";
 
@@ -38,6 +39,7 @@ import { MainComponent } from './shared/MainComponent';
     routingComponents,
     FilterPipe, DefaultImagePipe,
     HighlightDirective,
+    CarouselDirective,
     CityDetail,
     CityOrders,
   ],

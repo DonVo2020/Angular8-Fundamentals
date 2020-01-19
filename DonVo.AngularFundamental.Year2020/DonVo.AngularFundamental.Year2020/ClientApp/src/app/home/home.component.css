@@ -11,7 +11,7 @@
     border-color: #808080; /*set the color you want here*/
   }
 
-.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-primary {
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
   color: #0d2075;
   background-color: #8ef0e6;
   border-color: #808080; /*set the color you want here*/
