@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   // url of development API, hosted by json-server. See https://www.npmjs.com/package/json-server for detail
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'http://localhost:3000',
+  base_url: 'http://localhost:4000' // change this to talk to your real Authentication Server
 };
 
 /*
