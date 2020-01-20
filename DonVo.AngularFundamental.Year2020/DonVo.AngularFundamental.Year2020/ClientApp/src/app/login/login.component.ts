@@ -35,7 +35,7 @@ import { HttpClient , HttpHeaders} from '@angular/common/http';
 // Controller voor je View. Let op het gebruik van @ViewChild
 // om referentie naar element in de view op te halen.
 // Andere manier is om [(ngModel)] te gebruiken, maar dan moet je ook FormsModule importeren.
-export class LoginComponent {
+export class LoginMainComponent {
   response: string = '';
 
   constructor(private http: HttpClient) {

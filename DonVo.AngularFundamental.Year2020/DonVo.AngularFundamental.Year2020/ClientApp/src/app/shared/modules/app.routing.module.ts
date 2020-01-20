@@ -15,6 +15,7 @@ import { CanActivateViaAuthGuard } from "../guards/canActivateViaAuthGuard";
 import { CanDeactivateComponent } from "../components/canDeactivateComponent";
 import { CanDeactivateGuard } from "../guards/canDeactivateGuard";
 //import { AuthGuard } from '../guards/auth.guard';
+import { AuthInterceptorsGuard } from '../guards/auth-interceptors.guard';
 
 // Routing Loader
 import { MyCustomPreloader } from '../../app.routing.loader';
@@ -22,7 +23,7 @@ import { MyCustomPreloader } from '../../app.routing.loader';
 import { CityOrdersComponent } from '../components/city-orders.component';
 import { CityAddComponent } from "../../shared/components/city-add.component";
 import { CityDetailComponent } from "../../shared/components/city-detail.component";
-import { LoginComponent } from "../../login/login.component";
+import { LoginMainComponent } from "../../login/login.component";
 import { DataBindingComponent } from '../../001-data-binding/data-binding.component';
 import { EventBindingComponent } from '../../002-event-binding/event-binding.component';
 import { AttributeBindingComponent } from '../../003-attribute-binding/attribute-binding.component';
@@ -62,7 +63,6 @@ import { AoTCompilationComponent } from '../../031-aot-compilation/aot-compilati
 import { LazyLoadingComponent } from '../../032-lazy-loading/lazy-loading.component';
 import { CustomPreloadingComponent } from '../../033-custom-preloading/custom-preloading.component';
 import { ContentProjectionComponent } from '../../034-content-projection/content-projection.component';
-
 import { Card1Component } from '../../034-content-projection/card1/card1.component';
 import { Card2Component } from '../../034-content-projection/card2/card2.component';
 import { Card3Component } from '../../034-content-projection/card3/card3.component';
@@ -70,6 +70,11 @@ import { Card4Component } from '../../034-content-projection/card4/card4.compone
 import { NewsletterComponent } from '../../034-content-projection/newsletter/newsletter.component';
 import { Card5Component } from '../../034-content-projection/card5/card5.component';
 import { MyButtonComponent } from '../../034-content-projection/my-button/my-button.component';
+
+import { AuthenticationInterceptorsComponent } from '../../035-authentication-interceptors/authentication-interceptors.component';
+import { LoginComponent } from '../../035-authentication-interceptors/login/login.component';
+import { HomeBoyComponent } from '../../035-authentication-interceptors/home-boy/home-boy.component';
+
 
 
 // 3. Routing table
@@ -97,7 +102,7 @@ const AppRoutes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginMainComponent
   },
   { path: 'data-binding', component: DataBindingComponent },
   { path: 'event-binding', component: EventBindingComponent },
@@ -169,6 +174,20 @@ const AppRoutes: Routes = [
     loadChildren: '../../033-custom-preloading/very-big-module.module#VeryBigModule'
   },
   { path: 'content-projection', component: ContentProjectionComponent },
+  { path: 'authentication-interceptors', component: AuthenticationInterceptorsComponent },
+  {
+    path: 'authentication-interceptors/home-boy',
+    component: HomeBoyComponent
+  },
+  {
+    path: 'authentication-interceptors/login',
+    component: LoginComponent
+  },
+  {
+    path: 'authentication-interceptors/users',
+    loadChildren: '../../035-authentication-interceptors/users/users.module#UsersModule',
+    canActivate: [AuthInterceptorsGuard]
+  },
 /************************************* end of PART II ****************************************/
 
   {
@@ -241,6 +260,9 @@ export const routingComponents = [
   NewsletterComponent,
   Card5Component,
   MyButtonComponent,
+  AuthenticationInterceptorsComponent,
+  HomeBoyComponent,
+  LoginComponent,
 ];
 
 const config: ExtraOptions = {

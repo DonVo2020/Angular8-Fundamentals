@@ -7,16 +7,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // 2. Import Services & Guards
-import { LoginComponent } from "../../login/login.component";
+import { LoginMainComponent } from "../../login/login.component";
 
 // 3. Declare module. Import and Export CommonModule and components inside this module (in this case only the LoginComponent).
 @NgModule({
   imports: [CommonModule],
   exports: [
     CommonModule,
-    LoginComponent
+    LoginMainComponent
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginMainComponent]
 })
 export class LoginModule {
 }
